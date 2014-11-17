@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(theme="bootstrap.css",
                   
-    titlePanel(title="WDBC: A tool for cancer diagnosis",
+    titlePanel(title="WDBC: A tool for breast cancer diagnosis",
                windowTitle="WDBC: A tool for cancer diagnosis"),
     
     fluidRow(
