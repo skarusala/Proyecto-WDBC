@@ -8,7 +8,7 @@ shinyUI(fluidPage(theme="bootstrap.css",
     fluidRow(
         column(2,               
                h4("Introduction:"),
-               p("Welcome to WDBC, a revolutionary tool for cancer diagnosis that
+               p("Welcome to WDBC, a revolutionary tool for breast cancer diagnosis that
                  uses state of the art machine learning algorithms to help you.")),
         column(2,
                h4("Radius"),
