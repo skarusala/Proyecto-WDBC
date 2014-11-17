@@ -14,7 +14,7 @@ wdbc.labels <- wdbc[, 1]
 
 shinyServer(function(input, output) {
     
-    output$o.diagnosis <- renderText({
+    output$o.diagnosis <- renderUI({
         
         # get widget values
         wdbc.test <- c(input$i.radius.1, input$i.texture.1, input$i.perimeter.1,
@@ -40,6 +40,12 @@ shinyServer(function(input, output) {
         pred <- knn(train=wdbc.train, test=wdbc.test, cl=wdbc.labels, k=7)
         
         # format output
-        ifelse(as.numeric(pred) < 2, "Benign", "Malignant")        
+        if (as.numeric(pred) < 2) {
+            h1(HTML('<span class="label label-success">Benign</span>'),
+               align="center")    
+        } else {
+            h1(HTML('<span class="label label-danger">Malignant</span>'),
+               align="center")
+        }
     })
 })

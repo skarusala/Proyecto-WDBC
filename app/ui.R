@@ -6,7 +6,10 @@ shinyUI(fluidPage(theme="bootstrap.css",
                windowTitle="WDBC: A tool for cancer diagnosis"),
     
     fluidRow(
-        column(2),
+        column(2,               
+               h4("Introduction:"),
+               p("Welcome to WDBC, a revolutionary tool for cancer diagnosis that
+                 uses state of the art machine learning algorithms to help you.")),
         column(2,
                h4("Radius"),
                sliderInput("i.radius.1",
@@ -17,7 +20,8 @@ shinyUI(fluidPage(theme="bootstrap.css",
                            min=0.1, max=3.1, value=0.5, step=0.2),
                sliderInput("i.radius.3",
                            label="Worst:",
-                           min=7.5, max=36.5, value=17.5, step=2)
+                           min=7.5, max=36.5, value=17.5, step=2),
+               br()
         ),
         column(2,
                h4("Texture"),
@@ -69,7 +73,13 @@ shinyUI(fluidPage(theme="bootstrap.css",
         )
     ),
     fluidRow(
-        column(2),
+        column(2,
+               h4("Instructions:"),
+               p("Take the results for the medical screening on a 
+                 breast mass and set the associate values for the
+                 different sliders."),
+               p("The default values are placed at the mean for the
+                 variable of interest.")),
         column(2,
                h4("Compactness"),
                sliderInput("i.compac.1",
@@ -128,14 +138,15 @@ shinyUI(fluidPage(theme="bootstrap.css",
                            min=0, max=0.02, value=0.004, step=0.001),
                sliderInput("i.fdim.3",
                            label="Worst:",
-                           min=0.05, max=0.25, value=0.08, step=0.01)   
+                           min=0.05, max=0.25, value=0.08, step=0.01)               
         )
     ),
     fluidRow(
         column(2),
-        column(10,
+        column(4,
                h3("Diagnosis:"),
-               textOutput("o.diagnosis")
-        )
+               uiOutput("o.diagnosis")               
+        ),
+        column(6)
     )
 ))
